@@ -55,13 +55,3 @@ for _, (X,y) in enumerate(test_loader):
   corr = torch.sum(torch.argmax(net(X),dim=1) == y)
   acc += corr/len(X)
 print("Précision sur le jeu de test : ", acc/len(test_loader))
-
-acc = 0
-for _, (X,y) in enumerate(test_loader):
-    corr = 0
-    for idx in range(len(X)):
-        if torch.argmax(net(X[idx])) == y[idx]:
-            corr += 1
-    acc_b = corr/len(X)
-    acc += acc_b
-print("Précision sur le jeu de test : ", acc/len(test_loader))
