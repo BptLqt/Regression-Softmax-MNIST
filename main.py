@@ -35,7 +35,7 @@ criterion = nn.CrossEntropyLoss()
 opt = torch.optim.SGD(net.parameters(), lr=0.1)
 
 def train_batch(X, y, opt, net, criterion):
-  trainer.zero_grad()
+  opt.zero_grad()
   y_hat = net(X)
   loss = criterion(y_hat, y)
   loss.backward()
